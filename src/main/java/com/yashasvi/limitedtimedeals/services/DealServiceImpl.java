@@ -59,15 +59,9 @@ public class DealServiceImpl implements DealService {
     public ClaimDealResponse claimDeal(Long dealId) {
         int updatedRows = dealRepository.decrementQuantity(dealId);
         if (updatedRows == 0) {
-            return new ClaimDealResponse(
-                    false,
-                    "Deal not available"
-            );
+            return new ClaimDealResponse(false, "Deal not available");
         }
-        return new ClaimDealResponse(
-                true,
-                "Deal claimed successfully"
-        );
+        return new ClaimDealResponse(true, "Deal claimed successfully");
     }
 
     private void validateCreateDealRequest(CreateDealRequest createDealRequest) {

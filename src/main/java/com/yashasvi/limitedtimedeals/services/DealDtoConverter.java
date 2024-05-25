@@ -4,6 +4,8 @@ import com.yashasvi.limitedtimedeals.dtos.CreateDealRequest;
 import com.yashasvi.limitedtimedeals.dtos.DealDto;
 import com.yashasvi.limitedtimedeals.models.Deal;
 
+import java.util.Date;
+
 public class DealDtoConverter {
     private DealDtoConverter() {
     }
@@ -22,7 +24,7 @@ public class DealDtoConverter {
         deal.setPrice(createDealRequest.getPrice());
         // if end time is null set it to 100 yrs from now
         if (createDealRequest.getEndTime() == null) {
-            deal.setEndTime(new java.util.Date(System.currentTimeMillis() + 3155695200000L));
+            deal.setEndTime(new Date(System.currentTimeMillis() + 3155695200000L));
         } else {
             deal.setEndTime(createDealRequest.getEndTime());
         }
